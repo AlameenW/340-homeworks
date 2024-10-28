@@ -17,5 +17,8 @@ pas = pd.DataFrame()
 pas = pd.concat([age_12,age_teen,pclass],axis=1)
 pas.columns = ['Age_Teen','Age_12','Pclass']
 pas.index = [1,3,5,0,10,22]
-print(pas)
-print(pas.groupby(['Age_12']).Pclass.median())
+# print(pas.iloc[:3,:3])
+# iloc enables access with index number regardless of label
+# print(pas.groupby(['Age_12']).Pclass.median())
+
+# print(data.iloc[0].mode())
