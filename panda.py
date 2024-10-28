@@ -30,4 +30,10 @@ df = pd.DataFrame({
   'Sales': [100, 200, 150, 120, 250]
 })
 grouped = df.groupby('City')
-print(grouped.get_group('Sales'))
+print(grouped.get_group('New York').Sales.mean())
+for city,group in grouped:
+  group['City'] = group['City'].apply(lambda x: x+('City'))
+  group['City'] = group['City'].apply(lambda x: x.replace('City','.'))
+  print(group)
+# for city,group in grouped:
+    
