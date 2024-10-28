@@ -4,10 +4,18 @@ a = {
   "duration": [50, 40, 45]
 }
 data = pd.read_csv('data.csv')
-data.dtypes = data.astype(float)
-# print(data.iloc[:5])
-# data['Kcal'] = data['Duration']*data['Calories']
-# data.Duration.apply(lambda x: x.replace('Time: x'))
-data['Duration'] = data['Duration'].apply(lambda x: x+10)
-# print(data.iloc[:5,-3:])
-print(data.Calories.mean())
+# data.dtypes = data.astype(float)
+
+# print(data.iloc[:3,:2])
+# data['Duration'] = data['Duration'].apply(lambda x: x+10)
+# print(data.Calories.mean())
+
+age_12 = pd.Series([None,2.0,4.0,2.0,4.0,2.0])
+age_teen = pd.Series([None,7.0,None,14.0,None,7.0])
+pclass = pd.Series([3,2,3,3,2,3])
+pas = pd.DataFrame()
+pas = pd.concat([age_12,age_teen,pclass],axis=1)
+pas.columns = ['Age_Teen','Age_12','Pclass']
+pas.index = [1,3,5,0,10,22]
+print(pas)
+print(pas.groupby(['Age_12']).Pclass.median())
