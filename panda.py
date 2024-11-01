@@ -36,4 +36,8 @@ for city,group in grouped:
   group['City'] = group['City'].apply(lambda x: x.replace('City','.'))
   print(group)
 # for city,group in grouped:
-    
+  
+df = pd.DataFrame()
+col1 = [x**2 for x in range(1,5)]
+col2 = ['Red','Yellow','Blue','Green']
+pd.concat([col1,col2],axis=1)
